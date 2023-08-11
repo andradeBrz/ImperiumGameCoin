@@ -1,8 +1,10 @@
+import { defineStore } from "pinia"
 import { ref } from "vue"
 import Web3 from "web3"
 import { contractABI, contractAddress } from "../contract"
 
-export function useWeb3() {
+export const useWeb3Store = defineStore('web3Store', () => {
+
 	const web3 = ref(null)
 	const contract = ref(null)
 	const userAddress = ref(null)
@@ -24,4 +26,5 @@ export function useWeb3() {
 	}
 
 	return { web3, contract, userAddress, initWeb3 }
-}
+
+})

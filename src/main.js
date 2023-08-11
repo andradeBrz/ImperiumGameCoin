@@ -15,13 +15,16 @@ loadFonts()
 
 // Create vue app
 const app = createApp(App)
-
+const pinia = createPinia()
 
 // Use plugins
 app.use(vuetify)
-app.use(createPinia())
+app.use(pinia)
 app.use(router)
 app.use(layoutsPlugin)
 
 // Mount vue app
 app.mount('#app')
+
+
+export { pinia }
