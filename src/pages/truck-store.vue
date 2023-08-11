@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import TruckCard from '../components/TruckCard.vue'
+import common from '../assets/game-img/NFT/common-1.PNG'
 
 const trucks = ref([
 	{
@@ -9,6 +10,7 @@ const trucks = ref([
 		fuelTime: 9,
 		repairTime: 150,
 		harvestTime: 10, 
+		image: "@/assets/game-img/NFT/common-1.PNG"
 	},
 	{
 		name: 'Rare',
@@ -16,6 +18,7 @@ const trucks = ref([
 		fuelTime: 7,
 		repairTime: 144,
 		harvestTime: 8, 
+		image: "@/assets/game-img/NFT/rare-1.PNG"
 	},
 	{
 		name: 'Epic',
@@ -23,6 +26,7 @@ const trucks = ref([
 		fuelTime: 6,
 		repairTime: 114,
 		harvestTime: 7, 
+		image: "@/assets/game-img/NFT/epic-1.PNG"
 	},
 ])
 </script>

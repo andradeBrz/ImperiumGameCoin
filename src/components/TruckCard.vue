@@ -1,7 +1,7 @@
 <template>
   <VCard>
     <VCardItem class="pb-sm-0">
-      <VCardTitle>{{ truck.title }}</VCardTitle>
+      <VCardTitle>{{ truck.name }}</VCardTitle>
       <VCardSubtitle>{{ truck.description }}</VCardSubtitle>
     </VCardItem>
     <VCardText class="d-flex justify-space-between">
@@ -13,10 +13,10 @@
           <span>({{ truck.cost }}%)</span>
         </div>
       </div>
-      <VAvatar
-        rounded
-        variant="tonal"
-        color="red"
+      <VImg
+        :height="140"
+        class="mx-auto mb-5"
+        :src="truck.image"
       />
     </VCardText>
   </VCard>
@@ -31,6 +31,3 @@ defineProps({
 })
 </script>
 
-<style lang="scss">
-
-</style>
