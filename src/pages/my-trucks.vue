@@ -1,166 +1,166 @@
 <script setup>
 const userListMeta = [
-  {
-    icon: 'tabler-user',
-    color: 'primary',
-    title: 'Minerando',
-    stats: '5',
-    percentage: 50,
-    subtitle: 'Essas máquinas estão produzindo mais tokens YES para você',
-  },
-  {
-    icon: 'tabler-user-plus',
-    color: 'error',
-    title: 'Precisa de reparos',
-    stats: '1',
-    percentage: 10,
-    subtitle: 'Essas máquinas estão defeituosas e precisam de reparos',
-  },
-  {
-    icon: 'tabler-user-check',
-    color: 'success',
-    title: 'Precisa de energia',
-    stats: '3',
-    percentage: 30,
-    subtitle: 'Essas máquinas precisam de energia para continuar operando',
-  },
-  {
-    icon: 'tabler-user-exclamation',
-    color: 'warning',
-    title: 'Coleta disponível',
-    stats: '1',
-    percentage: 10,
-    subtitle: 'Você já pode coletar os tokens minerados por essas máquinas',
-  },
+	{
+		icon: 'tabler-user',
+		color: 'primary',
+		title: 'Minerando',
+		stats: '5',
+		percentage: 50,
+		subtitle: 'Essas máquinas estão produzindo mais tokens YES para você',
+	},
+	{
+		icon: 'tabler-user-plus',
+		color: 'error',
+		title: 'Precisa de reparos',
+		stats: '1',
+		percentage: 10,
+		subtitle: 'Essas máquinas estão defeituosas e precisam de reparos',
+	},
+	{
+		icon: 'tabler-user-check',
+		color: 'success',
+		title: 'Precisa de energia',
+		stats: '3',
+		percentage: 30,
+		subtitle: 'Essas máquinas precisam de energia para continuar operando',
+	},
+	{
+		icon: 'tabler-user-exclamation',
+		color: 'warning',
+		title: 'Coleta disponível',
+		stats: '1',
+		percentage: 10,
+		subtitle: 'Você já pode coletar os tokens minerados por essas máquinas',
+	},
 ]
 
 const currentActiveTab = ref('New')
 
 const orders = [
-  {
-    tabName: 'Minerando',
-    timeline1: [
-      {
-        icon: 'tabler-circle-check',
-        type: 'SENDER',
-        name: 'Myrtle Ullrich',
-        address: '101 Boulder, California(CA), 95959',
-      },
-      {
-        icon: 'tabler-map-pin',
-        type: 'RECEIVER',
-        name: 'Barry Schowalter',
-        address: '939 Orange, California(CA),92118',
-      },
-    ],
-    timeline2: [
-      {
-        icon: 'tabler-circle-check',
-        type: 'SENDER',
-        name: 'Veronica Herman',
-        address: '162 Windsor, California(CA), 95492',
-      },
-      {
-        icon: 'tabler-map-pin',
-        type: 'RECEIVER',
-        name: 'Helen Jacobs',
-        address: '487 Sunset, California(CA), 94043',
-      },
-    ],
-  },
-  {
-    tabName: 'Precisa de reparos',
-    timeline1: [
-      {
-        icon: 'tabler-circle-check',
-        type: 'SENDER',
-        name: 'Barry Schowalter',
-        address: '939 Orange, California(CA),92118',
-      },
-      {
-        icon: 'tabler-map-pin',
-        type: 'RECEIVER',
-        name: 'Myrtle Ullrich',
-        address: '101 Boulder, California(CA), 95959',
-      },
-    ],
-    timeline2: [
-      {
-        icon: 'tabler-circle-check',
-        type: 'SENDER',
-        name: 'Veronica Herman',
-        address: '162 Windsor, California(CA), 95492',
-      },
-      {
-        icon: 'tabler-map-pin',
-        type: 'RECEIVER',
-        name: 'Helen Jacobs',
-        address: '487 Sunset, California(CA), 94043',
-      },
-    ],
-  },
-  {
-    tabName: 'Precisa de energia',
-    timeline1: [
-      {
-        icon: 'tabler-circle-check',
-        type: 'SENDER',
-        name: 'Veronica Herman',
-        address: '101 Boulder, California(CA), 95959',
-      },
-      {
-        icon: 'tabler-map-pin',
-        type: 'RECEIVER',
-        name: 'Barry Schowalter',
-        address: '939 Orange, California(CA),92118',
-      },
-    ],
-    timeline2: [
-      {
-        icon: 'tabler-circle-check',
-        type: 'SENDER',
-        name: 'Myrtle Ullrich',
-        address: '162 Windsor, California(CA), 95492',
-      },
-      {
-        icon: 'tabler-map-pin',
-        type: 'RECEIVER',
-        name: 'Helen Jacobs',
-        address: '487 Sunset, California(CA), 94043',
-      },
-    ],
-  },
-  {
-    tabName: 'Coleta disponível',
-    timeline1: [
-      {
-        icon: 'tabler-circle-check',
-        type: 'SENDER',
-        name: 'Veronica Herman',
-        address: '101 Boulder, California(CA), 95959',
-      },
-      {
-        icon: 'tabler-map-pin',
-        type: 'RECEIVER',
-        name: 'Barry Schowalter',
-        address: '939 Orange, California(CA),92118',
-      },
-    ],
-    timeline2: [
-      {
-        icon: 'tabler-circle-check',
-        type: 'SENDER',
-        name: 'Myrtle Ullrich',
-        address: '162 Windsor, California(CA), 95492',
-      },
-      {
-        icon: 'tabler-map-pin',
-        type: 'RECEIVER',
-        name: 'Helen Jacobs',
-        address: '487 Sunset, California(CA), 94043',
-      },
-    ],
-  },
+	{
+		tabName: 'Minerando',
+		timeline1: [
+			{
+				icon: 'tabler-circle-check',
+				type: 'SENDER',
+				name: 'Myrtle Ullrich',
+				address: '101 Boulder, California(CA), 95959',
+			},
+			{
+				icon: 'tabler-map-pin',
+				type: 'RECEIVER',
+				name: 'Barry Schowalter',
+				address: '939 Orange, California(CA),92118',
+			},
+		],
+		timeline2: [
+			{
+				icon: 'tabler-circle-check',
+				type: 'SENDER',
+				name: 'Veronica Herman',
+				address: '162 Windsor, California(CA), 95492',
+			},
+			{
+				icon: 'tabler-map-pin',
+				type: 'RECEIVER',
+				name: 'Helen Jacobs',
+				address: '487 Sunset, California(CA), 94043',
+			},
+		],
+	},
+	{
+		tabName: 'Precisa de reparos',
+		timeline1: [
+			{
+				icon: 'tabler-circle-check',
+				type: 'SENDER',
+				name: 'Barry Schowalter',
+				address: '939 Orange, California(CA),92118',
+			},
+			{
+				icon: 'tabler-map-pin',
+				type: 'RECEIVER',
+				name: 'Myrtle Ullrich',
+				address: '101 Boulder, California(CA), 95959',
+			},
+		],
+		timeline2: [
+			{
+				icon: 'tabler-circle-check',
+				type: 'SENDER',
+				name: 'Veronica Herman',
+				address: '162 Windsor, California(CA), 95492',
+			},
+			{
+				icon: 'tabler-map-pin',
+				type: 'RECEIVER',
+				name: 'Helen Jacobs',
+				address: '487 Sunset, California(CA), 94043',
+			},
+		],
+	},
+	{
+		tabName: 'Precisa de energia',
+		timeline1: [
+			{
+				icon: 'tabler-circle-check',
+				type: 'SENDER',
+				name: 'Veronica Herman',
+				address: '101 Boulder, California(CA), 95959',
+			},
+			{
+				icon: 'tabler-map-pin',
+				type: 'RECEIVER',
+				name: 'Barry Schowalter',
+				address: '939 Orange, California(CA),92118',
+			},
+		],
+		timeline2: [
+			{
+				icon: 'tabler-circle-check',
+				type: 'SENDER',
+				name: 'Myrtle Ullrich',
+				address: '162 Windsor, California(CA), 95492',
+			},
+			{
+				icon: 'tabler-map-pin',
+				type: 'RECEIVER',
+				name: 'Helen Jacobs',
+				address: '487 Sunset, California(CA), 94043',
+			},
+		],
+	},
+	{
+		tabName: 'Coleta disponível',
+		timeline1: [
+			{
+				icon: 'tabler-circle-check',
+				type: 'SENDER',
+				name: 'Veronica Herman',
+				address: '101 Boulder, California(CA), 95959',
+			},
+			{
+				icon: 'tabler-map-pin',
+				type: 'RECEIVER',
+				name: 'Barry Schowalter',
+				address: '939 Orange, California(CA),92118',
+			},
+		],
+		timeline2: [
+			{
+				icon: 'tabler-circle-check',
+				type: 'SENDER',
+				name: 'Myrtle Ullrich',
+				address: '162 Windsor, California(CA), 95492',
+			},
+			{
+				icon: 'tabler-map-pin',
+				type: 'RECEIVER',
+				name: 'Helen Jacobs',
+				address: '487 Sunset, California(CA), 94043',
+			},
+		],
+	},
 ]
 
 import VueApexCharts from 'vue3-apexcharts'
@@ -170,96 +170,96 @@ import { hexToRgb } from '@layouts/utils'
 const vuetifyTheme = useTheme()
 
 const series = [{
-  data: [
-    40,
-    65,
-    50,
-  ],
+	data: [
+		40,
+		65,
+		50,
+	],
 }]
 
 const chartOptions = computed(() => {
-  const currentTheme = vuetifyTheme.current.value.colors
-  const variableTheme = vuetifyTheme.current.value.variables
+	const currentTheme = vuetifyTheme.current.value.colors
+	const variableTheme = vuetifyTheme.current.value.variables
   
-  return {
-    chart: {
-      parentHeightOffset: 0,
-      type: 'bar',
-      toolbar: { show: false },
-    },
-    plotOptions: {
-      bar: {
-        barHeight: '60%',
-        columnWidth: '38%',
-        startingShape: 'rounded',
-        endingShape: 'rounded',
-        borderRadius: 4,
-        distributed: true,
-      },
-    },
-    grid: {
-      show: false,
-      padding: {
-        top: -30,
-        bottom: 0,
-        left: -10,
-        right: -10,
-      },
-    },
-    colors: [
-      `rgba(${ hexToRgb(currentTheme.warning) },${ variableTheme['pressed-opacity'] })`,
-      `rgba(${ hexToRgb(currentTheme.error) },${ variableTheme['pressed-opacity'] })`,      
-      `rgba(${ hexToRgb(currentTheme.success) },${ variableTheme['pressed-opacity'] })`,
-    ],
-    dataLabels: { enabled: false },
-    legend: { show: false },
-    xaxis: {
-      categories: [
-        'Energia',
-        'Reparo',
-        'Recompensa',
-      ],
-      axisBorder: { show: false },
-      axisTicks: { show: false },
-      labels: {
-        style: {
-          colors: `rgba(${ hexToRgb(currentTheme['on-surface']) },${ variableTheme['disabled-opacity'] })`,
-          fontSize: '11px',
-          fontFamily: 'Public Sans',
-        },
-      },
-    },
-    yaxis: { labels: { show: false } },
-    tooltip: { enabled: false },
-    responsive: [{
-      breakpoint: 1025,
-      options: { chart: { height: 199 } },
-    }],
-  }
+	return {
+		chart: {
+			parentHeightOffset: 0,
+			type: 'bar',
+			toolbar: { show: false },
+		},
+		plotOptions: {
+			bar: {
+				barHeight: '60%',
+				columnWidth: '38%',
+				startingShape: 'rounded',
+				endingShape: 'rounded',
+				borderRadius: 4,
+				distributed: true,
+			},
+		},
+		grid: {
+			show: false,
+			padding: {
+				top: -30,
+				bottom: 0,
+				left: -10,
+				right: -10,
+			},
+		},
+		colors: [
+			`rgba(${ hexToRgb(currentTheme.warning) },${ variableTheme['pressed-opacity'] })`,
+			`rgba(${ hexToRgb(currentTheme.error) },${ variableTheme['pressed-opacity'] })`,      
+			`rgba(${ hexToRgb(currentTheme.success) },${ variableTheme['pressed-opacity'] })`,
+		],
+		dataLabels: { enabled: false },
+		legend: { show: false },
+		xaxis: {
+			categories: [
+				'Energia',
+				'Reparo',
+				'Recompensa',
+			],
+			axisBorder: { show: false },
+			axisTicks: { show: false },
+			labels: {
+				style: {
+					colors: `rgba(${ hexToRgb(currentTheme['on-surface']) },${ variableTheme['disabled-opacity'] })`,
+					fontSize: '11px',
+					fontFamily: 'Public Sans',
+				},
+			},
+		},
+		yaxis: { labels: { show: false } },
+		tooltip: { enabled: false },
+		responsive: [{
+			breakpoint: 1025,
+			options: { chart: { height: 199 } },
+		}],
+	}
 })
 
 const earningsReports = [
-  {
-    color: 'success',
-    icon: 'tabler-currency-dollar',
-    title: 'Recompensa',
-    amount: '105 YES',
-    progress: '55',
-  },
-  {
-    color: 'warning',
-    icon: 'tabler-chart-pie-2',
-    title: 'Energia',
-    amount: '50 YES',
-    progress: '25',
-  },
-  {
-    color: 'error',
-    icon: 'tabler-brand-paypal',
-    title: 'Reparo',
-    amount: '188 YES',
-    progress: '65',
-  },
+	{
+		color: 'success',
+		icon: 'tabler-currency-dollar',
+		title: 'Recompensa',
+		amount: '105 YES',
+		progress: '55',
+	},
+	{
+		color: 'warning',
+		icon: 'tabler-chart-pie-2',
+		title: 'Energia',
+		amount: '50 YES',
+		progress: '25',
+	},
+	{
+		color: 'error',
+		icon: 'tabler-brand-paypal',
+		title: 'Reparo',
+		amount: '188 YES',
+		progress: '65',
+	},
 ]
 </script>
 

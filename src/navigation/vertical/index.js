@@ -5,13 +5,18 @@ export default [
 		icon: { icon: 'tabler-smart-home' },
 	},
 	{
-		title: 'Loja de máquinas',
+		title: 'Loja de Caminhões',
 		to: { name: 'truck-store' },
-		icon: { icon: 'tabler-file' },
+		icon: { icon: 'carbon-store' },
 	},
 	{
-		title: 'Minhas máquinas',
-		to: { name: 'my-machines' },
-		icon: { icon: 'tabler-file' },
+		title: 'Estrada',
+		to: { name: 'road' },
+		icon: { icon: 'icon-park-outline:road-sign-both' },
+	},
+	{
+		title: 'Meus Caminhões',
+		to: { name: 'my-trucks' },
+		icon: { icon: 'game-icons:mechanic-garage' },
 	},
 ]

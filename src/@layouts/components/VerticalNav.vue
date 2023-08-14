@@ -1,38 +1,39 @@
 <script setup>
-import { PerfectScrollbar } from 'vue3-perfect-scrollbar'
-import { VNodeRenderer } from './VNodeRenderer'
 import {
-  injectionKeyIsVerticalNavHovered,
-  useLayouts,
+injectionKeyIsVerticalNavHovered,
+useLayouts,
 } from '@layouts'
 import {
-  VerticalNavGroup,
-  VerticalNavLink,
-  VerticalNavSectionTitle,
+VerticalNavGroup,
+VerticalNavLink,
+VerticalNavSectionTitle,
 } from '@layouts/components'
+
 import { config } from '@layouts/config'
+import { PerfectScrollbar } from 'vue3-perfect-scrollbar'
+import logo from '../../assets/logo.png'
 
 const props = defineProps({
-  tag: {
-    type: [
-      String,
-      null,
-    ],
-    required: false,
-    default: 'aside',
-  },
-  navItems: {
-    type: null,
-    required: true,
-  },
-  isOverlayNavActive: {
-    type: Boolean,
-    required: true,
-  },
-  toggleIsOverlayNavActive: {
-    type: Function,
-    required: true,
-  },
+	tag: {
+		type: [
+			String,
+			null,
+		],
+		required: false,
+		default: 'aside',
+	},
+	navItems: {
+		type: null,
+		required: true,
+	},
+	isOverlayNavActive: {
+		type: Boolean,
+		required: true,
+	},
+	toggleIsOverlayNavActive: {
+		type: Function,
+		required: true,
+	},
 })
 
 const refNav = ref()
@@ -42,34 +43,34 @@ const isHovered = useElementHover(refNav)
 provide(injectionKeyIsVerticalNavHovered, isHovered)
 
 const {
-  isVerticalNavCollapsed: isCollapsed,
-  isLessThanOverlayNavBreakpoint,
-  isVerticalNavMini,
-  isAppRtl,
+	isVerticalNavCollapsed: isCollapsed,
+	isLessThanOverlayNavBreakpoint,
+	isVerticalNavMini,
+	isAppRtl,
 } = useLayouts()
 
 const hideTitleAndIcon = isVerticalNavMini(windowWidth, isHovered)
 
 const resolveNavItemComponent = item => {
-  if ('heading' in item)
-    return VerticalNavSectionTitle
-  if ('children' in item)
-    return VerticalNavGroup
+	if ('heading' in item)
+		return VerticalNavSectionTitle
+	if ('children' in item)
+		return VerticalNavGroup
   
-  return VerticalNavLink
+	return VerticalNavLink
 }
 
 const route = useRoute()
 
 watch(() => route.name, () => {
-  props.toggleIsOverlayNavActive(false)
+	props.toggleIsOverlayNavActive(false)
 })
 
 const isVerticalNavScrolled = ref(false)
 const updateIsVerticalNavScrolled = val => isVerticalNavScrolled.value = val
 
 const handleNavScroll = evt => {
-  isVerticalNavScrolled.value = evt.target.scrollTop > 0
+	isVerticalNavScrolled.value = evt.target.scrollTop > 0
 }
 </script>
 
@@ -94,12 +95,16 @@ const handleNavScroll = evt => {
           to="/"
           class="app-logo d-flex align-center gap-x-3 app-title-wrapper"
         >
-          <VNodeRenderer :nodes="config.app.logo" />
-
+          <!-- <VNodeRenderer :nodes="config.app.logo" /> -->
+          <VImg 
+            height="40px" 
+            width="40px" 
+            :src="logo"
+          />
           <Transition name="vertical-nav-app-title">
             <h1
               v-show="!hideTitleAndIcon"
-              class="app-title font-weight-bold leading-normal text-xl"
+              class="app-title font-weight-bold leading-normal text-xl chooseColor"
             >
               {{ config.app.title }}
             </h1>
@@ -175,6 +180,9 @@ const handleNavScroll = evt => {
   transition: transform 0.25s ease-in-out, inline-size 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
   will-change: transform, inline-size;
 
+  .app-title{
+    color: #f35c19;
+  }
   .nav-header {
     display: flex;
     align-items: center;
@@ -203,6 +211,7 @@ const handleNavScroll = evt => {
     margin-inline-end: auto;
     text-overflow: ellipsis;
     white-space: nowrap;
+
   }
 
   // 👉 Collapsed

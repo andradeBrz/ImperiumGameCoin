@@ -9,7 +9,7 @@
     </VCardItem>
     <VCardText class="d-flex justify-space-between flex-column ">
       <VCardTitle class="text-center xxlarge">
-        {{ truck.name }}
+        {{ truck.name }} truck
       </VCardTitle>
       <VCardSubtitle>{{ truck.description }}</VCardSubtitle>
       <div>
@@ -20,6 +20,10 @@
         <div class="d-flex flex-row justify-space-between">
           <span class="d-flex font-weight-bold font-size-larger">Fuel time: </span>
           <span class="d-flex font-weight-bold font-size-larger"> {{ truck.fuelTime }} days </span>
+        </div>
+        <div class="d-flex flex-row justify-space-between">
+          <span class="d-flex font-weight-bold font-size-larger">Repair time: </span>
+          <span class="d-flex font-weight-bold font-size-larger"> {{ truck.repairTime }} days </span>
         </div>
         <div class="d-flex flex-row justify-center">
           <VBtn
