@@ -26,27 +26,27 @@ const authThemeMask = useGenerateImageVariant(authV2MaskLight, authV2MaskDark)
 const metamaskConnected = ref(false)
 
 async function connectWithMetamask() {
-  // Check if already connected with Metamask
-  if (metamaskConnected.value) {
-    router.push({ path: '/' })
+	// Check if already connected with Metamask
+	if (metamaskConnected.value) {
+		router.push({ path: '/' })
     
-    return
-  }
+		return
+	}
 
-  // Initialize web3 and get user address
-  await initWeb3()
+	// Initialize web3 and get user address
+	await initWeb3()
 
-  if (userAddress.value) {
-    console.log('Conectado com a Metamask', userAddress.value)
-    metamaskConnected.value = true
+	if (userAddress.value) {
+		console.log('Conectado com a Metamask', userAddress.value)
+		metamaskConnected.value = true
 
-    // Navigate to index.vue page
-    router.push({ path: '/' })
+		// Navigate to index.vue page
+		router.push({ path: '/' })
 
-    // TODO: Use o endereço da conta Metamask como identificador do usuário em seu sistema
-  } else {
-    console.error('Falha ao conectar com a Metamask')
-  }
+		// TODO: Use o endereço da conta Metamask como identificador do usuário em seu sistema
+	} else {
+		console.error('Falha ao conectar com a Metamask')
+	}
 }
 </script>
 

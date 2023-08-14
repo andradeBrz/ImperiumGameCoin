@@ -1,44 +1,17 @@
 <script setup>
 import { ref } from 'vue'
+import trucks from '../assets/trucks'
 import TruckCard from '../components/TruckCard.vue'
-import common from '../assets/game-img/NFT/common-1.PNG'
-
-const trucks = ref([
-	{
-		name: 'Common',
-		cost: 100,
-		fuelTime: 9,
-		repairTime: 150,
-		harvestTime: 10, 
-		image: "@/assets/game-img/NFT/common-1.PNG"
-	},
-	{
-		name: 'Rare',
-		cost: 250,
-		fuelTime: 7,
-		repairTime: 144,
-		harvestTime: 8, 
-		image: "@/assets/game-img/NFT/rare-1.PNG"
-	},
-	{
-		name: 'Epic',
-		cost: 600,
-		fuelTime: 6,
-		repairTime: 114,
-		harvestTime: 7, 
-		image: "@/assets/game-img/NFT/epic-1.PNG"
-	},
-])
 </script>
 
 <template>
   <VRow>
     <VCol
+      v-for="truck in trucks"
+      :key="truck.name"
       cols="6"
     >
       <TruckCard
-        v-for="truck in trucks"
-        :key="truck.name"
         :truck="truck"
       />
     </VCol>

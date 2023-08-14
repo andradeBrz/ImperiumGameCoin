@@ -10,6 +10,19 @@ import UserProfile from '@/layouts/components/UserProfile.vue'
 // @layouts plugin
 import { VerticalNavLayout } from '@layouts'
 
+
+import { useUserStore } from '@/stores/userStore'
+import { storeToRefs } from 'pinia'
+
+
+const userStore = useUserStore()
+
+//Import refs
+const {
+	userBalance
+} = storeToRefs(userStore)
+
+
 const { appRouteTransition, isLessThanOverlayNavBreakpoint } = useThemeConfig()
 const { width: windowWidth } = useWindowSize()
 </script>
@@ -40,7 +53,7 @@ const { width: windowWidth } = useWindowSize()
 
         <VSpacer />
 
-        <span class="mr-3">Saldo: 1000 YES</span>
+        <span class="mr-3">Saldo: {{ userBalance }} IGC</span>
         <UserProfile />
       </div>
     </template>

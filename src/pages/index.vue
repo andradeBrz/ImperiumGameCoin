@@ -14,7 +14,7 @@
           </VCardTitle>
           <VCardText class="space-y-1">
             <div>Endereço da carteira: <strong>{{ userAddress }}</strong></div>
-            <div>Seu saldo atual é: <strong>{{ userBalance }} YES</strong></div>
+            <div>Seu saldo atual é: <strong>{{ userBalance }} IGC</strong></div>
             <div>Saldo em BNB: <strong>{{ bnbBalance }}</strong></div>
           </VCardText>
         </VCard>
@@ -138,23 +138,23 @@ const pieChartOptions = ref({})
 const barChartData = ref([])
 const barChartOptions = ref({})
 
-function fromWeiToYespag(valueInWei, decimals = 8, showDecimals = true) {
-	const valueInYespag = valueInWei / 10 ** decimals
+function fromWeiToIGCpag(valueInWei, decimals = 8, showDecimals = true) {
+	const valueInIGCpag = valueInWei / 10 ** decimals
 	
-	return showDecimals ? valueInYespag.toFixed(decimals) : valueInYespag.toFixed(0)
+	return showDecimals ? valueInIGCpag.toFixed(decimals) : valueInIGCpag.toFixed(0)
 }
 
 async function loadContractInfo() {
 	if (web3.value && contract.value) {
 		tokenName.value = await contract.value.methods.name().call()
 		tokenSymbol.value = await contract.value.methods.symbol().call()
-		totalSupply.value = fromWeiToYespag(await contract.value.methods.totalSupply().call())
+		totalSupply.value = fromWeiToIGCpag(await contract.value.methods.totalSupply().call())
 		decimals.value = await contract.value.methods.decimals().call()
-		deadCoin.value = fromWeiToYespag(await contract.value.methods.deadCoin().call())
-		miningCoin.value = fromWeiToYespag(await contract.value.methods.miningCoin().call())
-		gamePool.value = fromWeiToYespag(await contract.value.methods.gamePool().call())
-		valueLocked.value = fromWeiToYespag(await contract.value.methods.valueLocked().call())
-		qtdPresale.value = fromWeiToYespag(await contract.value.methods.qtdPresale().call())
+		deadCoin.value = fromWeiToIGCpag(await contract.value.methods.deadCoin().call())
+		miningCoin.value = fromWeiToIGCpag(await contract.value.methods.miningCoin().call())
+		gamePool.value = fromWeiToIGCpag(await contract.value.methods.gamePool().call())
+		valueLocked.value = fromWeiToIGCpag(await contract.value.methods.valueLocked().call())
+		qtdPresale.value = fromWeiToIGCpag(await contract.value.methods.qtdPresale().call())
 		contractOwner.value = await contract.value.methods.contractOwner().call()
 
 		pieChartData.value = [
@@ -210,10 +210,10 @@ async function loadContractInfo() {
 }
 
 function formatIGCToken(value) {
-	if (typeof value !== 'string' && typeof value !== 'number') return "0 YES"
+	if (typeof value !== 'string' && typeof value !== 'number') return "0 IGC"
 	const formattedValue = Number(value).toLocaleString('en-US', { minimumFractionDigits: 0 })
 	
-	return `${formattedValue} YES`
+	return `${formattedValue} IGC`
 }
 
 watchEffect(async () => {

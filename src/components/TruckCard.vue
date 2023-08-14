@@ -1,23 +1,36 @@
 <template>
   <VCard>
     <VCardItem class="pb-sm-0">
-      <VCardTitle>{{ truck.name }}</VCardTitle>
-      <VCardSubtitle>{{ truck.description }}</VCardSubtitle>
-    </VCardItem>
-    <VCardText class="d-flex justify-space-between">
-      <div>
-        <div class="d-flex align-center gap-2 my-1">
-          <h6 class="text-h6">
-            {{ truck.type }}
-          </h6>
-          <span>({{ truck.cost }}%)</span>
-        </div>
-      </div>
       <VImg
         :height="140"
         class="mx-auto mb-5"
         :src="truck.image"
       />
+    </VCardItem>
+    <VCardText class="d-flex justify-space-between flex-column ">
+      <VCardTitle class="text-center xxlarge">
+        {{ truck.name }}
+      </VCardTitle>
+      <VCardSubtitle>{{ truck.description }}</VCardSubtitle>
+      <div>
+        <div class="d-flex flex-row justify-space-between">
+          <span class="d-flex font-weight-bold font-size-larger ">Cost: </span> 
+          <span class="d-flex font-weight-bold font-size-larger"> IGC {{ truck.cost }} </span>
+        </div>
+        <div class="d-flex flex-row justify-space-between">
+          <span class="d-flex font-weight-bold font-size-larger">Fuel time: </span>
+          <span class="d-flex font-weight-bold font-size-larger"> {{ truck.fuelTime }} days </span>
+        </div>
+        <div class="d-flex flex-row justify-center">
+          <VBtn
+            class="mt-5 d-flex w-80"
+            rounded="lg"
+            color="primary"
+          >
+            Comprar
+          </VBtn>
+        </div>
+      </div>
     </VCardText>
   </VCard>
 </template>
@@ -31,3 +44,8 @@ defineProps({
 })
 </script>
 
+<style scoped>
+.xxlarge{
+  font-size: 1.8rem;
+}
+</style>
