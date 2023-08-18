@@ -33,11 +33,13 @@ $css-vars: (
   "default": (
     "--v-theme-background": (
       "light": (244 ,245, 250),
-      "dark": (40 ,36, 61),
-    ),
-    "--v-theme-surface": (
-      "light": (255, 255, 255),
+      // "dark": (40 ,36, 61),
       "dark": (49, 45, 75),
+      ),
+      "--v-theme-surface": (
+        "light": (255, 255, 255),
+        "dark": (40 ,36, 61),
+      // "dark": (49, 45, 75),
     ),
   ),
   "bordered": (

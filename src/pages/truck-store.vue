@@ -1,17 +1,17 @@
 <script setup>
 import { ref } from 'vue'
-import trucks from '../assets/trucks'
-import TruckCard from '../components/TruckCard.vue'
+import data from '../assets/trucks'
+import StoreTruckCard from '../components/StoreTruckCard.vue'
 </script>
 
 <template>
   <VRow>
     <VCol
-      v-for="truck in trucks"
+      v-for="truck in data.storeTrucks"
       :key="truck.name"
       cols="6"
     >
-      <TruckCard
+      <StoreTruckCard
         :truck="truck"
       />
     </VCol>

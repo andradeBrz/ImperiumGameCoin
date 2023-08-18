@@ -4,6 +4,9 @@ import { defineStore, storeToRefs } from "pinia"
 import { ref } from "vue"
 import { useWeb3Store } from "./web3Store"
 
+import common from '../assets/game-img/NFT/common-1.png'
+import epic from '../assets/game-img/NFT/epic-1.png'
+import rare from '../assets/game-img/NFT/rare-1.png'
 
 export const useUserStore = defineStore('userStore', () => {
 	
@@ -51,10 +54,76 @@ export const useUserStore = defineStore('userStore', () => {
 		}
 	}
 
+	
+	const userTrucks = ref([
+		{
+			name: 'Common Truck',
+			level: '10',
+			
+			fuelTime: '45',
+			travelTime: '50',
+			repairTime: '200',
+			
+			fuelCapacity: '100',
+			image: common
+		},
+		{
+			name: 'Common Truck',
+			level: '5',
+			
+			fuelTime: '15',
+			travelTime: '200',
+			repairTime: '10',
+			
+			fuelCapacity: '50',
+			image: common
+		},
+		{
+			name: 'Rare Truck',
+			level: '10',
+			
+			fuelTime: '175',
+			travelTime: '500',
+			repairTime: '300',
+			
+			fuelCapacity: '200',
+			image: rare
+		},
+		{
+			name: 'Epic Truck',
+			level: '1',
+			
+			fuelTime: '500',
+			travelTime: '20',
+			repairTime: '700',
+			
+			fuelCapacity: '400',
+			image: epic
+		},
+	])
+
+	const decrementTime = () => {
+		userTrucks.value.forEach(truck => {
+			truck.fuelTime > 0 ? truck.fuelTime-- : truck.needFuel = true
+			truck.travelTime > 0 ? truck.travelTime-- : truck.travelFinished = true
+			truck.repairTime > 0 ? truck.repairTime-- : truck.needRepair = true
+		})
+	}
+
+	const interval = setInterval(decrementTime, 1000)
+
+	const needRepairTrucks = ref(userTrucks.value.filter(truck => truck.needRepair))
+	const needFuelTrucks = ref(userTrucks.value.filter(truck => truck.needFuel))
+	const travelingTrucks = ref(userTrucks.value.filter(truck => !truck.needRepair && !truck.needFuel && !truck.travelFinished))
+
 	return {
 		// refs
 		userBalance,
 		userAddress,
+		userTrucks,
+		needRepairTrucks,
+		needFuelTrucks,
+		travelingTrucks,
 
 		// funcs
 		getWalletAddress,
